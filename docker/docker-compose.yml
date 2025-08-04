@@ -1,0 +1,9 @@
+version: '3'
+services:
+  discourse:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DISCOURSE_DEVELOPER_EMAILS=test@example.com
+      - DISCOURSE_HOSTNAME=localhost

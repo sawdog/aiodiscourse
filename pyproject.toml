@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiodiscourse"
+version = "0.1.0"
+description = "Async client for Discourse API"
+dependencies = ["click", "aiohttp"]
+
+[project.scripts]
+discourse = "aiodiscourse.cli:cli"
+
+[tool.setuptools.packages.find]
+include = ["aiodiscourse"]
