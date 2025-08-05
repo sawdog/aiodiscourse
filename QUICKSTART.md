@@ -68,16 +68,20 @@ python examples/get_topic.py
 ```python
 import asyncio
 import os
+from dotenv import load_dotenv
+
 from aiodiscourse import AsyncDiscourseClient
+
+load_dotenv()
 
 async def main():
     client = AsyncDiscourseClient(
         base_url=os.environ["DISCOURSE_URL"],
         api_key=os.environ["DISCOURSE_APIKEY"],
-        api_username=os.environ["DISCOURSE_APIUSER"]
+        api_username=os.environ["DISCOURSE_API_USERNAME"]
     )
-    topics = await client.topics.list()
-    for topic in topics["topic_list"]["topics"]:
+
+    async for topic in client.topics.iter_latest():
         print(topic["title"])
 
 asyncio.run(main())
