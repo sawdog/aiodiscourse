@@ -1,19 +1,9 @@
 import asyncio
-import os
 
-from aiodiscourse import AsyncDiscourseClient
+from common import get_discourse_client
 
-API_KEY = os.environ.get("DISCOURSE_APIKEY")
-URL = os.getenv("DISCOURSE_URL",
-                          "https://localhost:3000")
-USERNAME = os.getenv("DISCOURSE_API_USERNAME", "admin")
-
-
-async def create_batch():
-    async with AsyncDiscourseClient( base_url=URL,
-                                     api_key=API_KEY,
-                                     api_username=USERNAME,
-                                     ) as client:
+async def main():
+    async with get_discourse_client() as client:
         for i in range(5):
             topic = await client.topics.create(
                 title=f'Batch Topic {i + 1}',
@@ -22,4 +12,4 @@ async def create_batch():
             print(f"Created topic {topic.get('topic_id') or topic.get('id')}")
 
 
-asyncio.run(create_batch())
+asyncio.run(main())

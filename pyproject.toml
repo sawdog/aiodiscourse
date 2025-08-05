@@ -6,7 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "aiodiscourse"
 version = "0.1.0"
 description = "Async client for Discourse API"
-dependencies = ["click", "aiohttp"]
+dependencies = ["click", "aiohttp", "arrow", "dotenv",]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+]
 
 [project.scripts]
 discourse = "aiodiscourse.cli:cli"

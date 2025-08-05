@@ -1,5 +1,7 @@
 aiohttp
+arrow
 click
+dotenv
 orjson
 pytest
 sphinx
