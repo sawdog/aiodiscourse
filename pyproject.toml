@@ -27,4 +27,4 @@ dev = [
 discourse = "aiodiscourse.cli:cli"
 
 [tool.setuptools.packages.find]
-include = ["aiodiscourse"]
+include = ["aiodiscourse*"]
