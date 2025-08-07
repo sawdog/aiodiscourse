@@ -4,11 +4,13 @@ from aiodiscourse import AsyncDiscourseClient
 
 load_dotenv()
 
+
 def get_required_env(name: str) -> str:
     value = os.getenv(name)
     if not value:
         raise RuntimeError(f"Missing required environment variable: {name}")
     return value
+
 
 def get_discourse_client() -> AsyncDiscourseClient:
     return AsyncDiscourseClient(
