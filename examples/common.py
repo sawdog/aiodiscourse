@@ -1,8 +1,11 @@
 import os
-from dotenv import load_dotenv
 from aiodiscourse import AsyncDiscourseClient
 
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except Exception:
+    pass
 
 
 def get_required_env(name: str) -> str:

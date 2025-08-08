@@ -1,5 +1,12 @@
-import click
 import asyncio
+import sys
+
+try:
+    import click
+except ImportError:
+    print("The CLI requires the optional 'cli' dependencies. Try: pip install "
+          "aiodiscourse[cli]")
+    sys.exit(1)
 
 try:
     from dotenv import load_dotenv
