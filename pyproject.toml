@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aiodiscourse"
-version = "0.1.0"
+version = "0.2.0"
 description = "Async client for Discourse API"
 readme = "README.md"
 requires-python = ">=3.13"
 license = { text = "MIT" }
 authors = [{ name = "Andrew Sawyers", email = "andrew@sawdog.com" }]
-dependencies = ["click", "aiohttp", "arrow", "dotenv"]
+dependencies =["aiohttp", "arrow", "dotenv"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -21,6 +21,9 @@ classifiers = [
 dev = [
     "pytest",
     "pytest-asyncio",
+]
+cli = [
+    "click",
 ]
 
 [project.scripts]
