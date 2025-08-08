@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 license = { text = "MIT" }
 authors = [{ name = "Andrew Sawyers", email = "andrew@sawdog.com" }]
-dependencies =["aiohttp", "arrow", "dotenv"]
+dependencies =["aiohttp", "arrow"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
@@ -24,6 +24,7 @@ dev = [
 ]
 cli = [
     "click",
+    "dotenv",
 ]
 
 [project.scripts]

@@ -1,19 +1,11 @@
 import asyncio
-import os
-from dotenv import load_dotenv
 
-from aiodiscourse import AsyncDiscourseClient
+from common import get_discourse_client
 
-load_dotenv()
 
 async def main():
-    client = AsyncDiscourseClient(
-        base_url=os.environ["DISCOURSE_URL"],
-        api_key=os.environ["DISCOURSE_APIKEY"],
-        api_username=os.environ["DISCOURSE_API_USERNAME"]
-    )
-
-    async for topic in client.topics.iter_latest():
-        print(topic["title"])
+    async with get_discourse_client() as client:
+        async for topic in client.topics.iter_latest():
+            print(topic["title"])
 
 asyncio.run(main())
